@@ -1,0 +1,29 @@
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-evenly; width: 250px;">
+    Your Cart:
+    {#for cartItem in cart.cartItems}
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-evenly;">
+            <div class="bike__box">
+                <button id="deleteCartItem" style="width: 25px; align-self: end;" value="{cartItem.id}">X</button>
+
+                <h4 style="text-align: center;">Model: {cartItem.model}</h4>
+
+                <img src="{cartItem.imageSource}" height="70" width="70" alt="{cartItem.model}">
+
+                <span>Price: {cartItem.price}€</span>
+
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <button id="decreaseQuantity" value="{cartItem.id}">-</button>
+                    <p>{cartItem.quantity}</p>
+                    <button id="increaseQuantity" value="{cartItem.id}">+</button>
+                </div>
+            </div>
+        </div>
+    {/for}
+</div>
+
+<div style="display: flex; flex-direction: row; justify-content: center; gap: 5px;">
+    <h3>Total: {cart.cartTotal} €</h3>
+    <button id="triggerOrder" class="btn" {#if cart.cartIsEmpty}disabled{/if} style="height: 30px; align-self: center;">
+        Checkout
+    </button>
+</div>

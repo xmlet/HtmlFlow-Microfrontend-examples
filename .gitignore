@@ -1,0 +1,5 @@
+.idea
+shell/target
+bike-service/target
+cart-service/target
+order-service/target
